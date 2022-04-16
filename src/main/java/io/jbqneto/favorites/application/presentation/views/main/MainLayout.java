@@ -1,5 +1,6 @@
 package io.jbqneto.favorites.application.presentation.views.main;
 
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.Button;
@@ -11,6 +12,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
+import io.jbqneto.favorites.application.domain.service.SecurityService;
 import io.jbqneto.favorites.application.presentation.views.page.DashboardView;
 import io.jbqneto.favorites.application.presentation.views.page.FavoritesView;
 
@@ -19,8 +21,10 @@ public class MainLayout extends AppLayout {
 
     private TextField name;
     private Button sayHello;
+    private SecurityService securityService;
 
-    public MainLayout() {
+    public MainLayout(SecurityService securityService) {
+        this.securityService = securityService;
         createHeader();
         createDrawer();
     }
@@ -29,7 +33,12 @@ public class MainLayout extends AppLayout {
         var logo = new H1("Vaadin Favorites");
         logo.addClassNames("text-l", "m-m");
 
-        var header = new HorizontalLayout(new DrawerToggle(), logo);
+        var logout = new Button("Log out", event -> {
+            securityService.logout();
+            UI.getCurrent().getPage().setLocation("/");
+        });
+
+        var header = new HorizontalLayout(new DrawerToggle(), logo, logout);
         header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
         header.expand(logo);
         header.setWidthFull();

@@ -13,6 +13,9 @@ import io.jbqneto.favorites.application.domain.service.CategoryService;
 import io.jbqneto.favorites.application.domain.service.FavoriteService;
 import io.jbqneto.favorites.application.presentation.views.main.MainLayout;
 
+import javax.annotation.security.PermitAll;
+
+@PermitAll
 @PageTitle("Vaadin Favorites | Dashboard")
 @Route(value = "dashboard", layout = MainLayout.class)
 public class DashboardView extends VerticalLayout {

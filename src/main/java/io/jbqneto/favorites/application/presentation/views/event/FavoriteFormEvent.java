@@ -2,7 +2,7 @@ package io.jbqneto.favorites.application.presentation.views.event;
 
 import com.vaadin.flow.component.ComponentEvent;
 import io.jbqneto.favorites.application.domain.model.business.Favorite;
-import io.jbqneto.favorites.application.presentation.views.page.FavoriteForm;
+import io.jbqneto.favorites.application.presentation.views.component.FavoriteForm;
 
 public class FavoriteFormEvent extends ComponentEvent<FavoriteForm> {
 

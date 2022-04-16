@@ -12,11 +12,15 @@ import com.vaadin.flow.router.Route;
 import io.jbqneto.favorites.application.domain.model.business.Favorite;
 import io.jbqneto.favorites.application.domain.service.CategoryService;
 import io.jbqneto.favorites.application.domain.service.FavoriteService;
+import io.jbqneto.favorites.application.presentation.views.component.FavoriteForm;
 import io.jbqneto.favorites.application.presentation.views.event.FavoriteFormEvent;
 import io.jbqneto.favorites.application.presentation.views.main.MainLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.security.PermitAll;
+
+@PermitAll
 @PageTitle("Favorites | Vaadin CRM")
 @Route(value = "", layout = MainLayout.class)
 public class FavoritesView extends VerticalLayout {

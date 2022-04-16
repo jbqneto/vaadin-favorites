@@ -1,5 +1,7 @@
 package io.jbqneto.favorites.application;
 
+import com.vaadin.flow.component.login.AbstractLogin;
+import com.vaadin.flow.component.login.LoginForm;
 import io.jbqneto.favorites.application.infrastructure.entity.CategoryEntity;
 import io.jbqneto.favorites.application.infrastructure.repository.port.CategoryRepository;
 import io.jbqneto.favorites.application.infrastructure.repository.port.FavoriteRepository;
@@ -17,6 +19,11 @@ import java.util.List;
 @ComponentScan(basePackages = {"io.jbqneto.favorites.application"} )
 @Configuration
 public class AppConfig {
+
+    @Bean
+    public LoginForm loginForm() {
+        return new LoginForm();
+    }
 
     @Bean
     CommandLineRunner runner(CategoryRepository categoryRepository, FavoriteRepository favoriteRepository) {
