@@ -1,4 +1,4 @@
-package io.jbqneto.favorites.application.presentation.views.page;
+package io.jbqneto.favorites.application.presentation.views.component;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
