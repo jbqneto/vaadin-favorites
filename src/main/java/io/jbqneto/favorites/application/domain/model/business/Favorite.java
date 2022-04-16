@@ -1,12 +1,22 @@
-package io.jbqneto.favorites.domain.model.business;
+package io.jbqneto.favorites.application.domain.model.business;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
-public class Favorite {
+public class Favorite implements IDModel {
     private final long id;
+
+    @NotBlank
+    @NotNull
     private final String title;
+
+    @NotBlank
     private final String url;
+
+    @NotNull
     private Category category;
+
     private String description;
 
     public void setCategory(Category category) {
@@ -33,6 +43,12 @@ public class Favorite {
         this.id = id;
         this.title = title;
         this.url = url;
+    }
+
+    public Favorite(long id, String title, String url, Category category, String description) {
+        this(id, title, url);
+        this.category = category;
+        this.description = description;
     }
 
     public String getDescription() {

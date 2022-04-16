@@ -1,9 +1,16 @@
-package io.jbqneto.favorites.domain.model.business;
+package io.jbqneto.favorites.application.domain.model.business;
 
-public class Category {
+import javax.validation.constraints.NotNull;
+
+public class Category implements IDModel {
     private final long id;
+
+    @NotNull
     private final String name;
+
     private Category category;
+
+    private int countFavorites;
 
     public long getId() {
         return id;
@@ -24,5 +31,13 @@ public class Category {
     public Category(long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public int getCountFavorites() {
+        return countFavorites;
+    }
+
+    public void setCountFavorites(int countFavorites) {
+        this.countFavorites = countFavorites;
     }
 }
